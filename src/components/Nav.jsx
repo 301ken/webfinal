@@ -22,18 +22,18 @@ function Nav() {
             px={5}
         >
             <Stack
-                bg={useColorModeValue('linear-gradient(to right, #9B59B6, #8E44AD)', 'linear-gradient(to right, #9B59B6, #8E44AD)')}
-                color={useColorModeValue('white', 'gray.200')}
+                bg={useColorModeValue('black', 'black')}
+                color="white"
                 borderRadius="2xl"
                 spacing={10}
                 p="20px"
                 pt={{ lg: '10vh' }}
                 h={{ sm: 'auto', lg: '95vh' }}
                 direction={{ sm: 'row', lg: 'column' }}
-                boxShadow="xl"
+                boxShadow="0 0 15px rgba(0, 255, 255, 0.6), 0 0 30px rgba(0, 255, 255, 0.4)"
                 _hover={{
-                    boxShadow: '2xl',
-                    transform: 'scale(1.02)',
+                    boxShadow: '0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.6)',
+                    transform: 'scale(1.05)',
                     transition: 'all 0.3s ease',
                 }}
             >
@@ -42,10 +42,10 @@ function Nav() {
                     description="Home"
                     icon={<BiHome />}
                     path="/home"
-                    bgGradient="linear(to-r, #8E44AD, #9B59B6)"
-                    hoverBg="purple.500"
+                    bgGradient="linear(to-r, #00FFFF, #39FF14)" // Neon cyan to neon green
+                    hoverBg="#39FF14" // Neon green on hover
                     textColor="white"
-                    hoverColor="white"
+                    hoverColor="black"
                 />
 
                 {/* Navigation Item: Profile */}
@@ -53,10 +53,10 @@ function Nav() {
                     description="Profile"
                     icon={<CgProfile />}
                     path={`/profile/${user?.id}`}
-                    bgGradient="linear(to-r, #8E44AD, #9B59B6)"
-                    hoverBg="purple.600"
+                    bgGradient="linear(to-r, #FF007F, #00FFFF)" // Neon pink to neon cyan
+                    hoverBg="#FF007F" // Neon pink on hover
                     textColor="white"
-                    hoverColor="white"
+                    hoverColor="black"
                 />
 
                 {/* Add Post Button */}
@@ -67,3 +67,4 @@ function Nav() {
 }
 
 export default Nav;
+

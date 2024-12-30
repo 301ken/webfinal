@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import AuthContext from '../context/AuthContext';
 
 function ProfileCard({ userName, userImage }) {
-
     const { logout } = useContext(AuthContext);
 
     return (
@@ -18,11 +17,15 @@ function ProfileCard({ userName, userImage }) {
         >
             <Card
                 w={{ base: 'md', xl: 'sm' }}
-                bgGradient="linear(to-r, #8E44AD, #2C3E50)"
-                boxShadow="xl"
+                bgGradient="linear(to-r, #00b0ff, #8E44AD)" // Neon blue to pink gradient
+                boxShadow="0 0 15px rgba(0, 176, 255, 0.6), 0 0 25px rgba(142, 68, 173, 0.6)" // Glowing shadows
                 borderRadius="xl"
                 color="white"
-                _hover={{ boxShadow: '2xl' }}
+                _hover={{
+                    boxShadow: '0 0 25px rgba(0, 176, 255, 1), 0 0 35px rgba(142, 68, 173, 1)', // Glow effect on hover
+                    transform: 'scale(1.05)',
+                    transition: 'all 0.3s ease-in-out'
+                }}
                 transition="all 0.3s ease-in-out"
             >
                 <CardHeader>
@@ -30,8 +33,10 @@ function ProfileCard({ userName, userImage }) {
                         <Flex flex='1' gap='4' alignItems='center' flexWrap='wrap'>
                             <Avatar name={userName} src={userImage} border="2px solid #fff" boxSize="80px" />
                             <Box>
-                                <Text color={'#B3B6B7'}>Logged in as :</Text>
-                                <Heading size='sm' fontWeight="bold">{userName}</Heading>
+                                <Text color={'#B3B6B7'}>Logged in as:</Text>
+                                <Heading size='sm' fontWeight="bold" textShadow="0 0 8px rgba(0, 176, 255, 0.8), 0 0 15px rgba(142, 68, 173, 0.8)">
+                                    {userName}
+                                </Heading>
                             </Box>
                         </Flex>
                         <Button
@@ -40,6 +45,8 @@ function ProfileCard({ userName, userImage }) {
                             variant="outline"
                             _hover={{ bg: 'pink.500', color: 'white' }}
                             borderRadius="full"
+                            borderColor="pink.500"
+                            textShadow="0 0 5px rgba(255, 20, 147, 1)" // Adding a pink glow to the button
                         >
                             Log out
                         </Button>
@@ -51,3 +58,4 @@ function ProfileCard({ userName, userImage }) {
 }
 
 export default ProfileCard;
+

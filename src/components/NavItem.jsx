@@ -8,31 +8,32 @@ function NavItem({ description, icon, path }) {
             label={description}
             placement={'right'}
             hasArrow
-            direction='ltr'
             fontSize={'xl'}
             borderRadius={'2xl'}
         >
             <Button
                 p={7}
                 borderRadius={'2xl'}
-                colorScheme={'purple'}
-                bgGradient="linear(to-r, #8E44AD, #9B59B6)"
-                color={'white'}
                 fontSize={'3xl'}
                 as={NavLink}
                 to={path}
+                color={'#0ff'}
+                bg="#111"
+                boxShadow="0 0 12px #0ff, 0 0 24px #0ff"
                 _hover={{
-                    boxShadow: '2xl',
+                    boxShadow: '0 0 16px #0ff, 0 0 32px #0ff',
                     transform: 'scale(1.05)',
-                    bgGradient: 'linear(to-r, #9B59B6, #8E44AD)',
-                    color: 'white',
+                    color: '#fff',
                 }}
                 _activeLink={{
-                    boxShadow: '2xl',
-                    bgGradient: 'linear(to-r, #9B59B6, #8E44AD)',
-                    color: 'white',
+                    boxShadow: '0 0 16px #0ff, 0 0 32px #0ff',
+                    bg: '#000',
                 }}
                 rightIcon={icon}
+                sx={{
+                    textShadow: '0 0 6px #0ff, 0 0 12px #0ff',
+                    transition: 'all 0.3s ease',
+                }}
             >
                 <Text as={'b'}>{description}</Text>
             </Button>

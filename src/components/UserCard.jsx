@@ -72,10 +72,14 @@ function UserCard({ image, fullName, followers, following, isFollowing, isOwner,
                     maxW={'270px'}
                     w={'xl'}
                     bg={useColorModeValue('white', 'gray.800')}
-                    boxShadow={'2xl'}
+                    boxShadow={'0 0 15px rgba(0, 176, 255, 0.6), 0 0 25px rgba(142, 68, 173, 0.6)'}
                     rounded={'md'}
                     overflow={'hidden'}
-                    _hover={{ boxShadow: 'dark-lg', transform: 'scale(1.05)' }}
+                    _hover={{
+                        boxShadow: '0 0 25px rgba(0, 176, 255, 1), 0 0 35px rgba(142, 68, 173, 1)',
+                        transform: 'scale(1.05)',
+                        transition: 'all 0.3s ease-in-out'
+                    }}
                     transition="all 0.3s ease-in-out"
                 >
                     <Image
@@ -101,7 +105,13 @@ function UserCard({ image, fullName, followers, following, isFollowing, isOwner,
 
                     <Box p={6}>
                         <Stack spacing={0} align={'center'} mb={5}>
-                            <Heading fontSize={'2xl'} fontWeight={500} fontFamily={'body'} color="violet.500">
+                            <Heading
+                                fontSize={'2xl'}
+                                fontWeight={500}
+                                fontFamily={'body'}
+                                color="violet.500"
+                                textShadow="0 0 8px rgba(0, 176, 255, 0.8), 0 0 15px rgba(142, 68, 173, 0.8)"
+                            >
                                 {fullName}
                             </Heading>
                         </Stack>
@@ -130,7 +140,11 @@ function UserCard({ image, fullName, followers, following, isFollowing, isOwner,
                                     color={'white'}
                                     rounded={'md'}
                                     variant="outline"
-                                    _hover={{ bg: 'pink.500', color: 'white' }}
+                                    _hover={{
+                                        bg: 'pink.500',
+                                        color: 'white',
+                                        textShadow: '0 0 8px rgba(255, 20, 147, 0.8)'
+                                    }}
                                     onClick={() => { handleUnFollow(user.id, parseInt(userId)) }}
                                 >
                                     Unfollowed
@@ -143,7 +157,11 @@ function UserCard({ image, fullName, followers, following, isFollowing, isOwner,
                                     colorScheme='pink'
                                     color={'white'}
                                     rounded={'md'}
-                                    _hover={{ bg: 'pink.500', color: 'white' }}
+                                    _hover={{
+                                        bg: 'pink.500',
+                                        color: 'white',
+                                        textShadow: '0 0 8px rgba(255, 20, 147, 0.8)'
+                                    }}
                                     onClick={() => { handleFollow(user.id, parseInt(userId)) }}
                                 >
                                     Follow
@@ -157,3 +175,4 @@ function UserCard({ image, fullName, followers, following, isFollowing, isOwner,
 }
 
 export default UserCard;
+
